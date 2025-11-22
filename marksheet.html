@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Marksheet</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+        padding: 20px;
+      }
+      .container {
+        max-width: 600px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: auto;
+      }
+      h2 {
+        text-align: center;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: center;
+      }
+      input[type="text"],
+      input[type="number"] {
+        width: 100%;
+        padding: 6px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      button {
+        margin-top: 10px;
+        padding: 8px 12px;
+        border: none;
+        background: #007bff;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      .result {
+        margin-top: 15px;
+        background: #e9f7ef;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Student Marksheet</h2>
+
+      <label>Student Name:</label>
+      <input type="text" id="name" placeholder="Enter name" />
+      <label>Roll No:</label>
+      <input type="text" id="roll" placeholder="Enter roll number" />
+
+      <table id="marksTable">
+        <tr>
+          <th>Subject</th>
+          <th>Total Marks</th>
+          <th>Obtained Marks</th>
+        </tr>
+        <tr>
+          <td>Math<input type="number" value="100" id="math" /></td>
+        </tr>
+        <tr>
+          <td>English<input type="number" value="100" id="english" /></td>
+        </tr>
+        <tr>
+          <td>Science<input type="number" value="100" id="science" /></td>
+        </tr>
+      </table>
+
+      <button onclick="calculate()">Calculate Result</button>
+
+      <div id="output" class="result">
+        <p><b>Name:</b> <span id="stu_name"></span></p>
+        <p><b>Name:</b> <span id="stu_roll"></span></p>
+        <p><b>Total Marks:</b> <span id="totalMarks"></span></p>
+        <p><b>Obtained Marks:</b> <span id="obtMarks"></span></p>
+        <p><b>Percentage:</b> <span id="percent"></span>%</p>
+        <p><b>Grade:</b> <span id="grade"></span></p>
+      </div>
+    </div>
+    <script>
+      function calculate() {
+        let a = document.getElementById("name").value;
+        let b = document.getElementById("roll").value;
+        let math = parseInt(document.getElementById("math").value);
+        let english = parseInt(document.getElementById("english").value);
+        let science = parseInt(document.getElementById("science").value);
+        let obtain_marks = math+english+science;
+        let percentage = obtain_marks/300*100;
+        
+        document.getElementById("obtMarks").innerHTML = obtain_marks;
+        document.getElementById("percent").innerHTML = percentage;
+
+
+        let score = percentage;
+         let grade;
+
+    if (score >= 90) {
+    grade = "A1";
+    } else if (score >= 80) {
+    grade = "B";
+    } else if (score >= 70) {
+    grade = "C";
+    } else if (score >= 60) {
+    grade = "D";
+    } else {
+    grade = "F";
+    }
+      document.getElementById("grade").innerHTML = grade;
+
+// console.log("Your grade is: " + grade);
+      }
+      let totalall= 300;
+      document.getElementById("totalMarks").innerHTML = totalall;
+    </script>
+  </body>
+</html>
