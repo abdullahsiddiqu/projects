@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 200px;
+            border: 2px solid black;
+            color: green;
+            height: 200px;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Age Finder</h1>
+    <div class="container">
+        <p>Your age Is : <span id="age1"> </span></p>    
+    </div>
+        <!-- <input type="submit" id="submit"> -->
+    <script>
+    let a = parseInt(prompt('Enter your Birth year'));
+    let final =2025;
+    document.getElementById('age1').innerHTML = final-a;
+    </script>
+</body>
+</html>
